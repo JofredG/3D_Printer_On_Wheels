@@ -39,4 +39,34 @@ Which open source .svg to .g-code generator works best?
 ##### Thoughts for the future:
 [Rotrics Studio has an option to integrate a sliding rail which uses the E-Axis feature.](https://manual.rotrics.com/get-start/sliding-rail-kit) Given there is an E-Axis, we may attempt to have that axis movement translate to wheels of the AVG Robot that is set to be used as the moving platform by *x* mm. **Must figure out if we can take advantage of the feature.**
 
+# My Conda Environment
 
+This repository contains an `environment.yml` file to set up a Python environment with all required packages.
+
+## 🚀 Setup Instructions
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/JofredG/3D_Printer_On_Wheels.git
+   cd 3D_Printer_On_Wheels
+   ```
+
+2. **Create the Conda environment**:
+   ```bash
+   conda env create -f environment.yml
+   ```
+
+3. **Activate the environment**:
+   ```bash
+   conda activate seniorEnv
+   ```
+
+---
+
+## 📦 Notes
+
+- This environment file includes both Conda and pip-installed packages.
+- If you update the environment, you can regenerate the file using:
+  ```bash
+  conda env export --from-history > environment.yml
+  ```
