@@ -1,6 +1,6 @@
 from pydexarm import Dexarm
 
-dexarm = Dexarm(port="COM3")  # Replace with your serial port
+dexarm = Dexarm(port="/dev/cu.usbmodem2087397947531")  # Replace with your serial port
 dexarm.go_home()
 
 # Path to your g-code file

@@ -1,8 +1,13 @@
-# 3D_Printer_On_Wheels
+# 3D_Printer_On_Wheels Notes & Design Artifacts
 
-[3D_Printer_On_Wheels GitHub](https://github.com/JofredG/3D_Printer_On_Wheels)
-[Dexarm_GitHub](https://github.com/Rotrics-Dev)
-[Rotrics_Dexarm_Manual](https://manual.rotrics.com/)
+This repository documents the system design, interface reasoning, and debugging process for our senior design project involving a robotic 3D printing arm mounted on a mobile platform. The focus of this repository is on protocol understanding, command serialization, hardware–software integration, and diagnosing failures across system layers (SVG → G-code → firmware → motion), rather than on presenting a polished software repo.
+
+Implementation code was exploratory and tool-assisted; the primary contribution captured here is the technical reasoning, constraints analysis, and design decisions made while integrating embedded hardware, motion control firmware, and host-side communication.
+
+[3D_Printer_UI GitHub](https://github.com/JofredG/3D-Printer-UI) ||
+[Dexarm_GitHub](https://github.com/Rotrics-Dev) ||
+[Rotrics_Dexarm_Manual](https://manual.rotrics.com/) ||
+[System Integration Diagram Video](project-images/System-Integration-Diagram.mp4)
 
 ### 1/24/24 Meeting w Fonseca (Senior Project Advisor)
 - Need to ensure we choose a viable final deliverable.
@@ -38,5 +43,23 @@ Which open source .svg to .g-code generator works best?
 
 ##### Thoughts for the future:
 [Rotrics Studio has an option to integrate a sliding rail which uses the E-Axis feature.](https://manual.rotrics.com/get-start/sliding-rail-kit) Given there is an E-Axis, we may attempt to have that axis movement translate to wheels of the AVG Robot that is set to be used as the moving platform by *x* mm. **Must figure out if we can take advantage of the feature.**
+
+## Project Images
+
+![Final Presentation 1](project-images/Final-Presentation-1.JPG)
+
+![Final Presentation 2](project-images/Final-Presentation-2.JPG)
+
+![Final Presentation 3](project-images/Final-Presentation-3.JPG)
+
+![Hallway Presentation](project-images/HallwayPresentation.jpeg)
+
+![Motor Controller Diagram](project-images/MotorControllerDiagram.JPG)
+
+![Motor Controller Hardware](project-images/MotorControllerHardware.jpeg)
+
+![Close-Up 1](project-images/Close-Up-1.JPG)
+
+![Close-Up 2](project-images/Close-Up-2.JPG)
 
 

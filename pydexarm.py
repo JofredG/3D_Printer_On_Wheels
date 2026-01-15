@@ -1,5 +1,6 @@
 import serial
 import re
+import time
 
 class Dexarm:
     """ Python class for Dexarm
@@ -273,3 +274,25 @@ class Dexarm:
         Release the serial port.
         """
         self.ser.close()
+
+
+    def execute_gcode_file(self, gcode_file):
+        # Set up the serial connection
+        #ser = serial.Serial('/dev/cu.usbmodem2087397947531', 115200, timeout=1)  # Replace with 'COM<x>' if on windows
+        #time.sleep(2)  # Allow for connection to initialize
+
+        # Open the G-code file
+        with open(gcode_file, 'r') as gcode_file:
+                for line in gcode_file:
+                    # Strip whitespace
+                    command = line.strip()
+                    
+                    if command and not command.startswith(';'):
+                        print(f"Sending: {command}")
+                        self.ser.write((command + '\n').encode())  # Send G-code
+                        time.sleep(0.1)  # avoid overwhelming device
+        
+        # Close the serial connection
+        ser.close()
+        print("G-code file sent successfully!")
+
