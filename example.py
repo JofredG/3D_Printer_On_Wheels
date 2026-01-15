@@ -1,39 +1,28 @@
 from pydexarm import Dexarm
 import time
+import serial
 
 '''windows'''
-dexarm = Dexarm(port="COM67")
+# dexarm = Dexarm(port="COM67")
 '''mac & linux'''
-# device = Dexarm(port="/dev/tty.usbmodem3086337A34381")
+# this is for the top right USB port on raspberry pi 5, use >>ls /dev/tty*<< to find port otherwise
+dexarm = Dexarm(port="/dev/ttyACM1")
 
+# Open serial connection to arduino, this is for the top left USB port on rasp 5
+arduino = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
+time.sleep(2)
 dexarm.go_home()
+time.sleep(2)
 
-dexarm.move_to(50, 300, 0)
-dexarm.move_to(50, 300, -50)
-dexarm.air_picker_pick()
-dexarm.move_to(50, 300, 0)
-dexarm.move_to(-50, 300, 0)
-dexarm.move_to(-50, 300, -50)
-dexarm.air_picker_place()
+for _ in range(3):
+    dexarm.move_to(0, 300, -125)
+    time.sleep(1)
+    dexarm.move_to(0, 250, -125)
+    time.sleep(1)
+    arduino.write(b'1')
+    time.sleep(0.5)
+    arduino.write(b'0')
+    time.sleep(1)
 
-dexarm.go_home()
-
-'''DexArm sliding rail Demo'''
-'''
-dexarm.conveyor_belt_forward(2000)
-time.sleep(20)
-dexarm.conveyor_belt_backward(2000)
-time.sleep(10)
-dexarm.conveyor_belt_stop()
-'''
-
-'''DexArm sliding rail Demo'''
-'''
-dexarm.go_home()
-dexarm.sliding_rail_init()
-dexarm.move_to(None,None,None,0)
-dexarm.move_to(None,None,None,100)
-dexarm.move_to(None,None,None,50)
-dexarm.move_to(None,None,None,200)
-'''
+arduino.close() # close serial comm
 dexarm.close()

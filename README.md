@@ -44,6 +44,7 @@ Which open source .svg to .g-code generator works best?
 ##### Thoughts for the future:
 [Rotrics Studio has an option to integrate a sliding rail which uses the E-Axis feature.](https://manual.rotrics.com/get-start/sliding-rail-kit) Given there is an E-Axis, we may attempt to have that axis movement translate to wheels of the AVG Robot that is set to be used as the moving platform by *x* mm. **Must figure out if we can take advantage of the feature.**
 
+
 ## Project Images
 
 ![Final Presentation 1](project-images/Final-Presentation-1.JPG)
@@ -61,5 +62,3 @@ Which open source .svg to .g-code generator works best?
 ![Close-Up 1](project-images/Close-Up-1.JPG)
 
 ![Close-Up 2](project-images/Close-Up-2.JPG)
-
-
